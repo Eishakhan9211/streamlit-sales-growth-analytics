@@ -1,0 +1,247 @@
+/* Blush pink shell — dark text stays readable (works even if browser theme is dark). */
+
+:root {
+  --app-bg: #fdf2f5;
+  --app-bg-soft: #f7e8ee;
+  --app-surface: #fffbfc;
+}
+
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stDecoration"],
+[data-testid="stHeader"] {
+  background-color: var(--app-bg) !important;
+  background-image: none !important;
+  color: #111111;
+}
+
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] > div {
+  background-color: var(--app-bg) !important;
+  color: #111111;
+}
+
+.main .block-container {
+  background-color: var(--app-bg);
+  color: #111111;
+}
+
+/* Sidebar body text — avoid bare `span` (breaks dark selectbox / secondary buttons). */
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] .stMarkdown,
+[data-testid="stSidebar"] .stMarkdown span {
+  color: #111111 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+  color: #111111 !important;
+}
+
+/* Secondary buttons (dark fill): ensure light label text */
+[data-testid="stSidebar"] .stButton > button[kind="secondary"],
+[data-testid="stSidebar"] .stButton > button[kind="secondary"] p,
+[data-testid="stSidebar"] .stButton > button[kind="secondary"] span,
+.main .stButton > button[kind="secondary"],
+.main .stButton > button[kind="secondary"] p,
+.main .stButton > button[kind="secondary"] span {
+  color: #f9fafb !important;
+}
+
+/* Primary buttons: keep light text on brand fill */
+[data-testid="stSidebar"] .stButton > button[kind="primary"],
+[data-testid="stSidebar"] .stButton > button[kind="primary"] p,
+[data-testid="stSidebar"] .stButton > button[kind="primary"] span {
+  color: #ffffff !important;
+}
+
+/* File uploader dropzone: "Upload" control uses dark fill — force light text + icon */
+[data-testid="stFileUploaderDropzone"] button,
+[data-testid="stFileUploaderDropzone"] button p,
+[data-testid="stFileUploaderDropzone"] button span {
+  color: #ffffff !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button svg {
+  fill: currentColor !important;
+  color: #ffffff !important;
+}
+
+[data-testid="stFileUploader"] .stButton > button[kind="secondary"],
+[data-testid="stFileUploader"] .stButton > button[kind="secondary"] p,
+[data-testid="stFileUploader"] .stButton > button[kind="secondary"] span {
+  color: #ffffff !important;
+}
+
+/* Main typography */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] td,
+[data-testid="stMarkdownContainer"] th {
+  color: #111111;
+}
+
+/* —— Hero (main title + tagline in one card) —— */
+.page-hero {
+  margin: 0 0 1.35rem 0;
+  padding: 1.4rem 1.55rem 1.35rem 1.3rem;
+  background: linear-gradient(145deg, #ffe8f0 0%, #fdf2f5 45%, var(--app-surface) 100%);
+  border: 1px solid #f9c4d8;
+  border-left: 5px solid #db2777;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(219, 39, 119, 0.12), 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.page-hero-title {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #0f172a;
+}
+
+.page-hero-caption {
+  margin: 0.65rem 0 0 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #475569;
+  font-weight: 400;
+}
+
+/* —— Section headings (st.header / st.subheader) —— */
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4 {
+  color: #0f172a !important;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 1.65rem 0 0.9rem 0;
+  padding: 0.72rem 1.05rem 0.72rem 1rem;
+  background: linear-gradient(90deg, #fae8ef 0%, var(--app-surface) 88%);
+  border: 1px solid #f0c4d4;
+  border-left: 4px solid #e11d48;
+  border-radius: 11px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+[data-testid="stMarkdownContainer"] h2 {
+  font-size: 1.32rem;
+  border-left-color: #be185d;
+}
+
+[data-testid="stMarkdownContainer"] h3 {
+  font-size: 1.14rem;
+  border-left-color: #db2777;
+}
+
+[data-testid="stMarkdownContainer"] h4 {
+  font-size: 1.02rem;
+  border-left-color: #ec4899;
+}
+
+/* Don’t double-box headings that already sit inside the hero card */
+.page-hero h1,
+.page-hero h2,
+.page-hero h3 {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* —— Tabs: clearer “cards” for each section —— */
+.stTabs [data-baseweb="tab-list"] {
+  gap: 6px;
+  padding: 0.4rem 0.35rem 0 0.35rem;
+  background: var(--app-bg-soft);
+  border-radius: 12px;
+  border-bottom: none;
+}
+
+.stTabs [data-baseweb="tab"] {
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #64748b;
+  border: 1px solid transparent;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  background: var(--app-surface) !important;
+  color: #9d174d !important;
+  border-color: #f9a8d4;
+  box-shadow: 0 1px 4px rgba(219, 39, 119, 0.15);
+}
+
+/* In-tab bold labels (e.g. “Highest-selling products”) */
+[data-testid="stMarkdownContainer"] p strong:only-child {
+  display: inline-block;
+  margin: 0.35rem 0 0.5rem 0;
+  padding: 0.35rem 0.65rem;
+  background: var(--app-surface);
+  border-radius: 8px;
+  border: 1px solid #f0c4d4;
+  color: #334155;
+  font-weight: 600;
+}
+
+/* Widget labels and hints */
+label,
+.stCaption,
+[data-testid="stCaptionContainer"],
+.stCheckbox label,
+.stRadio > div > label {
+  color: #1a1a1a !important;
+}
+
+/* Streamlit theme tokens (recent versions) */
+.stApp {
+  --text-color: #111111;
+  --secondary-text-color: #3d3d3d;
+}
+
+/* Keep links readable on blush */
+.stApp a {
+  color: #0366d6;
+}
+
+.stApp a:hover {
+  color: #024ea2;
+}
+
+/* —— Section dividers (sidebar + main) —— */
+[data-testid="stSidebar"] hr {
+  margin: 1rem 0;
+  border: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(219, 39, 119, 0.35) 15%,
+    #db2777 50%,
+    rgba(219, 39, 119, 0.35) 85%,
+    transparent
+  );
+  opacity: 1;
+}
+
+.main .block-container hr {
+  margin: 1.5rem 0 1.25rem;
+  border: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 231, 243, 0.3),
+    rgba(219, 39, 119, 0.45) 22%,
+    #be185d 52%,
+    rgba(219, 39, 119, 0.45) 78%,
+    rgba(252, 231, 243, 0.3)
+  );
+}
