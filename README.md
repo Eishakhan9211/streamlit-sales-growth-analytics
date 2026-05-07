@@ -58,15 +58,15 @@ For the usual `streamlit run` experience (often faster and better for very large
 
 ## Project layout
 
-| File | What it’s for |
-|------|----------------|
-| `app.py` | Main app (the dashboard) |
-| `app_styles.css` | Styling (colors, layout) |
-| `index.html` | Static shell for Vercel (stlite loads `app.py` in the browser) |
-| `vercel.json` | Tells Vercel this is not a Node/React framework project |
-| `Dockerfile` | Optional: run Streamlit as a normal web server in Docker |
-| `requirements.txt` | List of Python libraries to install |
-| `run_dashboard.bat` | Windows shortcut to start the app |
+| File                | What it’s for                                                  |
+| ------------------- | -------------------------------------------------------------- |
+| `app.py`            | Main app (the dashboard)                                       |
+| `app_styles.css`    | Styling (colors, layout)                                       |
+| `index.html`        | Static shell for Vercel (stlite loads `app.py` in the browser) |
+| `vercel.json`       | Tells Vercel this is not a Node/React framework project        |
+| `Dockerfile`        | Optional: run Streamlit as a normal web server in Docker       |
+| `requirements.txt`  | List of Python libraries to install                            |
+| `run_dashboard.bat` | Windows shortcut to start the app                              |
 
 ## Tips
 
