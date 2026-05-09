@@ -38,6 +38,16 @@ streamlit run app.py
 
 Then open **http://localhost:8501** in your browser.
 
+## Deploy on Vercel
+
+Vercel’s normal serverless setup is built for short HTTP requests, not a classic **Streamlit server** (which stays running and uses WebSockets). This repo is set up to still work on **Vercel** by serving a static page (`index.html`) that runs the same app in the browser with **[stlite](https://github.com/whitphx/stlite)** (Streamlit + Pyodide). Your data stays in the visitor’s browser.
+
+1. Push this project to GitHub (or GitLab / Bitbucket).
+2. In [Vercel](https://vercel.com), create a project and import that repo.
+3. Under **Settings → General → Build & Development**, set **Framework Preset** to **Other** and leave **Build Command** and **Output Directory** empty unless Vercel fills them in—there is no build step; the site is static files plus `app.py`.
+4. Deploy. Open the production URL; the first load may take a while while scientific libraries download in the browser.
+
+If Vercel picks “Python” on its own because of `requirements.txt`, switch the preset to **Other** so it does not try to run `streamlit` on the server.
 
 ### Full server Streamlit (Docker)
 
@@ -58,7 +68,7 @@ For the usual `streamlit run` experience (often faster and better for very large
 ## Tips
 
 - **Spreadsheet columns:** works best when you have things like product name, date, and sales or revenue. The app tries to pick the right columns automatically; if it’s wrong, fix them under **Optional — column names, stock & cleaning** in the sidebar.
-
+- **Change the design:** edit `app_styles.css`, save, and refresh the page in your browser.
 
 ## License
 
