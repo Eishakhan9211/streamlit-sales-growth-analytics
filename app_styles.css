@@ -211,13 +211,18 @@ label,
  * unreadable on blush. Pin value text to dark rose (delta keeps its green/red).
  */
 [data-testid="stMetricLabel"] label,
-[data-testid="stMetricLabel"] p {
+[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] [data-testid="stMarkdownContainer"],
+[data-testid="stMetricLabel"] [data-testid="stMarkdownContainer"] * {
   color: #334155 !important;
 }
 
 [data-testid="stMetricValue"],
-[data-testid="stMetricValue"] * {
+[data-testid="stMetricValue"] *,
+[data-testid="stMetricValue"] [data-testid="stMarkdownContainer"],
+[data-testid="stMetricValue"] [data-testid="stMarkdownContainer"] * {
   color: #9d174d !important;
+  -webkit-text-fill-color: #9d174d !important;
 }
 
 /* Keep links readable on blush */
