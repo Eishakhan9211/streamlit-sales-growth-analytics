@@ -19,3 +19,6 @@ Thumbs.db
 # Env files (if you add API keys later)
 .env
 .env.*
+
+# Local-only launcher (Windows), not shipped to GitHub
+run_dashboard.bat

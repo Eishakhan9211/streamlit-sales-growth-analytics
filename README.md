@@ -30,14 +30,11 @@ pip install -r requirements.txt
 
 ### 2. Run the app
 
-**Option A — batch file (Windows)**  
-Double-click `run_dashboard.bat`, or run it from a terminal.
-
-**Option B — command line**
-
 ```bash
 streamlit run app.py
 ```
+
+(Optional on Windows you can save a shortcut as `run_dashboard.bat`; that helper is intentionally **not** in the repo so GitHub stays limited to shipped app code.)
 
 Then open **http://localhost:8501** in your browser.
 
@@ -62,11 +59,11 @@ For the usual `streamlit run` experience (often faster and better for very large
 | ------------------- | -------------------------------------------------------------- |
 | `app.py`            | Main app (the dashboard)                                       |
 | `app_styles.css`    | Styling (colors, layout)                                       |
+| `.streamlit/`       | Streamlit settings (including theme)                             |
 | `index.html`        | Static shell for Vercel (stlite loads `app.py` in the browser) |
 | `vercel.json`       | Tells Vercel this is not a Node/React framework project        |
 | `Dockerfile`        | Optional: run Streamlit as a normal web server in Docker       |
 | `requirements.txt`  | List of Python libraries to install                            |
-| `run_dashboard.bat` | Windows shortcut to start the app                              |
 
 ## Tips
 
