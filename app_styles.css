@@ -205,6 +205,26 @@ label,
   --secondary-text-color: #3d3d3d;
 }
 
+/*
+ * st.metric: the large value uses Streamlit heading/theme colors. With a forced light
+ * page background but OS/browser dark preference, that value can stay nearly white —
+ * unreadable on blush. Pin value text to dark rose (delta keeps its green/red).
+ */
+[data-testid="stMetricLabel"] label,
+[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] [data-testid="stMarkdownContainer"],
+[data-testid="stMetricLabel"] [data-testid="stMarkdownContainer"] * {
+  color: #334155 !important;
+}
+
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] *,
+[data-testid="stMetricValue"] [data-testid="stMarkdownContainer"],
+[data-testid="stMetricValue"] [data-testid="stMarkdownContainer"] * {
+  color: #9d174d !important;
+  -webkit-text-fill-color: #9d174d !important;
+}
+
 /* Keep links readable on blush */
 .stApp a {
   color: #0366d6;

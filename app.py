@@ -233,10 +233,9 @@ def latest_stock_by_product(
 
 def inject_app_styles() -> None:
     css_path = Path(__file__).resolve().parent / "app_styles.css"
-    st.markdown(
-        f"<style>{css_path.read_text(encoding='utf-8')}</style>",
-        unsafe_allow_html=True,
-    )
+    # Style-only HTML must use st.html: st.markdown sanitization can drop <style>,
+    # so metric overrides would never apply. st.html emits global CSS correctly.
+    st.html(f"<style>{css_path.read_text(encoding='utf-8')}</style>")
 
 
 st.set_page_config(

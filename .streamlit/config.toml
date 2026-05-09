@@ -1,5 +1,11 @@
+[theme]
+# OS dark mode otherwise makes widgets (including st.metric values) use “light” text.
+base = "light"
+
 [server]
-headless = true
+# false = Streamlit opens your default browser when you run locally (streamlit run app.py).
+# Docker uses: streamlit run ... --server.headless=true (overrides this in containers).
+headless = false
 maxUploadSize = 200
 enableXsrfProtection = true
 

@@ -11,6 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app.py app_styles.css ./
+COPY .streamlit/config.toml .streamlit/config.toml
 
 ENV STREAMLIT_SERVER_HEADLESS=true
 
